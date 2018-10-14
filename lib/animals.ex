@@ -60,4 +60,21 @@ defmodule Animals do
       {_seen, to_see} = Enum.split(zoo, -count);
       to_see
   end
+
+  @doc """
+  save takes a list of zoo animals and a filename and saves the list to
+  that file
+
+  ## Examples
+
+    iex> zoo = Animals.create_zoo
+    iex> Animals.save(zoo, "my_animals")
+    :ok
+  """
+  def save(zoo, filename) do
+      # erlang is converting the zoo list to something that can be
+      # written to the file system
+      binary = :erlang.term_to_binary(zoo)
+      File.write(filename, binary)
+  end
 end
