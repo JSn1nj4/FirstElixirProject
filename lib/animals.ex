@@ -77,4 +77,24 @@ defmodule Animals do
       binary = :erlang.term_to_binary(zoo)
       File.write(filename, binary)
   end
+
+  @doc """
+  selection takes a number, creates a zoo, randomises it and then
+  returns a list of animals of length selected
+
+    ## Examples
+
+    iex> Animals.selection(2)
+    ["gorilla", "giraffe"]
+  """
+  def selection(number_of_animals) do
+      # We are using the pipe operator here. It takes the value returned
+      # from the expression and passes it down as the first argument in
+      # the expression below. see_animals takes two arguments but only
+      # one needs to be specified as the first is provided by the pipe
+      # operator
+      Animals.create_zoo
+      |> Animals.randomize
+      |> Animals.see_animals(number_of_animals)
+  end
 end
