@@ -8,12 +8,14 @@ defmodule Animals do
 
   ## Examples
 
-        iex> Animals.create_zoo
-        ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
+  ```
+  iex> Animals.create_zoo
+  ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
+  ```
 
   """
   def create_zoo do
-      ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
+    ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
   end
 
   @doc """
@@ -22,13 +24,15 @@ defmodule Animals do
 
   ## Examples
 
-        iex> zoo = Animals.create_zoo
-        iex> Animals.randomize(zoo)
-        ["monkey", "tiger", "elephant", "gorilla", "giraffe", "lion"]
+  ```
+  iex> zoo = Animals.create_zoo
+  iex> Animals.randomize(zoo)
+  ["monkey", "tiger", "elephant", "gorilla", "giraffe", "lion"]
+  ```
 
   """
   def randomize(zoo) do
-      Enum.shuffle(zoo)
+    Enum.shuffle(zoo)
   end
 
   @doc """
@@ -37,13 +41,14 @@ defmodule Animals do
 
   ## Examples
 
-        iex> zoo = Animals.create_zoo
-        iex> Animals.contains?(zoo, "gorilla")
-        true
+  ```
+  iex> zoo = Animals.create_zoo
+  iex> Animals.contains?(zoo, "gorilla")
+  true
 
   """
   def contains?(zoo, animal) do
-      Enum.member?(zoo, animal)
+    Enum.member?(zoo, animal)
   end
 
   @doc """
@@ -52,16 +57,18 @@ defmodule Animals do
 
   ## Examples
 
-        iex> zoo = Animals.create_zoo
-        iex> Animals.see_animals(zoo, 2)
-        ["monkey", "giraffe"]
+  ```
+  iex> zoo = Animals.create_zoo
+  iex> Animals.see_animals(zoo, 2)
+  ["monkey", "giraffe"]
+  ```
 
   """
   def see_animals(zoo, count) do
-      # Enum.split returns a tuple so we have to pattern match on the
-      # result to get the value we want out
-      {_seen, to_see} = Enum.split(zoo, -count);
-      to_see
+    # Enum.split returns a tuple so we have to pattern match on the
+    # result to get the value we want out
+    {_seen, to_see} = Enum.split(zoo, -count)
+    to_see
   end
 
   @doc """
@@ -70,16 +77,18 @@ defmodule Animals do
 
   ## Examples
 
-        iex> zoo = Animals.create_zoo
-        iex> Animals.save(zoo, "my_animals")
-        :ok
+  ```
+  iex> zoo = Animals.create_zoo
+  iex> Animals.save(zoo, "my_animals")
+  :ok
+  ```
 
   """
   def save(zoo, filename) do
-      # erlang is converting the zoo list to something that can be
-      # written to the file system
-      binary = :erlang.term_to_binary(zoo)
-      File.write(filename, binary)
+    # erlang is converting the zoo list to something that can be
+    # written to the file system
+    binary = :erlang.term_to_binary(zoo)
+    File.write(filename, binary)
   end
 
   @doc """
@@ -88,18 +97,20 @@ defmodule Animals do
 
   ## Examples
 
-        iex> Animals.selection(2)
-        ["gorilla", "giraffe"]
+  ```
+  iex> Animals.selection(2)
+  ["gorilla", "giraffe"]
+  ```
 
   """
   def selection(number_of_animals) do
-      # We are using the pipe operator here. It takes the value returned
-      # from the expression and passes it down as the first argument in
-      # the expression below. see_animals takes two arguments but only
-      # one needs to be specified as the first is provided by the pipe
-      # operator
-      Animals.create_zoo
-      |> Animals.randomize
-      |> Animals.see_animals(number_of_animals)
+    # We are using the pipe operator here. It takes the value returned
+    # from the expression and passes it down as the first argument in
+    # the expression below. see_animals takes two arguments but only
+    # one needs to be specified as the first is provided by the pipe
+    # operator
+    Animals.create_zoo()
+    |> Animals.randomize()
+    |> Animals.see_animals(number_of_animals)
   end
 end
