@@ -83,6 +83,22 @@ defmodule Animals do
   end
 
   @doc """
+  load takes filename and returns a list of animals if the file exists
+
+  ## Examples
+
+  """
+  def load(filename) do
+    # here we are running a case expression on the result of File.read(filename)
+    # if we receive an :ok then we ant to return the list
+    # if we receive an error then we want to give the user an error-friendly message
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> "File does not exist"
+    end
+  end
+
+  @doc """
   selection takes a number, creates a zoo, randomises it and then
   returns a list of animals of length selected
 
