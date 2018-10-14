@@ -1,5 +1,5 @@
 {application,animals,
-             [{applications,[kernel,stdlib,elixir,logger]},
+             [{applications,[kernel,stdlib,elixir,logger,ex_doc]},
               {description,"animals"},
               {modules,['Elixir.Animals']},
               {registered,[]},
