@@ -43,4 +43,21 @@ defmodule Animals do
   def contains?(zoo, animal) do
       Enum.member?(zoo, animal)
   end
+
+  @doc """
+  see_animals takes a list of zoo animals and the number of animals that
+  you want to see and then returns a list
+
+  ## Examples
+
+    iex> zoo = Animals.create_zoo
+    iex> Animals.see_animals(zoo, 2)
+    ["monkey", "giraffe"]
+  """
+  def see_animals(zoo, count) do
+      # Enum.split returns a tuple so we have to pattern match on the result
+      # to get the value we want out
+      {_seen, to_see} = Enum.split(zoo, -count);
+      to_see
+  end
 end
