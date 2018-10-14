@@ -7,8 +7,9 @@ defmodule Animals do
   create_zoo returns a list of zoo animals
 
   ## Examples
-    iex> Animals.create_zoo
-    ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
+
+        iex> Animals.create_zoo
+        ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
 
   """
   def create_zoo do
@@ -21,9 +22,9 @@ defmodule Animals do
 
   ## Examples
 
-    iex> zoo = Animals.create_zoo
-    iex> Animals.randomize(zoo)
-    ["monkey", "tiger", "elephant", "gorilla", "giraffe", "lion"]
+        iex> zoo = Animals.create_zoo
+        iex> Animals.randomize(zoo)
+        ["monkey", "tiger", "elephant", "gorilla", "giraffe", "lion"]
 
   """
   def randomize(zoo) do
@@ -36,9 +37,10 @@ defmodule Animals do
 
   ## Examples
 
-    iex> zoo = Animals.create_zoo
-    iex> Animals.contains?(zoo, "gorilla")
-    true
+        iex> zoo = Animals.create_zoo
+        iex> Animals.contains?(zoo, "gorilla")
+        true
+
   """
   def contains?(zoo, animal) do
       Enum.member?(zoo, animal)
@@ -50,9 +52,10 @@ defmodule Animals do
 
   ## Examples
 
-    iex> zoo = Animals.create_zoo
-    iex> Animals.see_animals(zoo, 2)
-    ["monkey", "giraffe"]
+        iex> zoo = Animals.create_zoo
+        iex> Animals.see_animals(zoo, 2)
+        ["monkey", "giraffe"]
+
   """
   def see_animals(zoo, count) do
       # Enum.split returns a tuple so we have to pattern match on the
@@ -67,9 +70,10 @@ defmodule Animals do
 
   ## Examples
 
-    iex> zoo = Animals.create_zoo
-    iex> Animals.save(zoo, "my_animals")
-    :ok
+        iex> zoo = Animals.create_zoo
+        iex> Animals.save(zoo, "my_animals")
+        :ok
+
   """
   def save(zoo, filename) do
       # erlang is converting the zoo list to something that can be
@@ -82,10 +86,11 @@ defmodule Animals do
   selection takes a number, creates a zoo, randomises it and then
   returns a list of animals of length selected
 
-    ## Examples
+  ## Examples
 
-    iex> Animals.selection(2)
-    ["gorilla", "giraffe"]
+        iex> Animals.selection(2)
+        ["gorilla", "giraffe"]
+
   """
   def selection(number_of_animals) do
       # We are using the pipe operator here. It takes the value returned
