@@ -16,8 +16,8 @@ defmodule Animals do
   end
 
   @doc """
-  randomise takes a list of zoo animals and returns a new randomised list with
-  the same elements as the first.
+  randomise takes a list of zoo animals and returns a new randomised
+  list with the same elements as the first.
 
   ## Examples
 
@@ -31,8 +31,8 @@ defmodule Animals do
   end
 
   @doc """
-  contains? takes a list of zoo animals and a single animal and returns a boolean
-  as to whether or not the list contains the given animal.
+  contains? takes a list of zoo animals and a single animal and returns
+  a boolean as to whether or not the list contains the given animal.
 
   ## Examples
 
@@ -55,8 +55,8 @@ defmodule Animals do
     ["monkey", "giraffe"]
   """
   def see_animals(zoo, count) do
-      # Enum.split returns a tuple so we have to pattern match on the result
-      # to get the value we want out
+      # Enum.split returns a tuple so we have to pattern match on the
+      # result to get the value we want out
       {_seen, to_see} = Enum.split(zoo, -count);
       to_see
   end
