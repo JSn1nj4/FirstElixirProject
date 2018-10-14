@@ -22,3 +22,10 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 animals-*.tar
 
+# Ignore other binary files
+*.beam
+*.elixir
+*.elixir_scm
+*.protocols
+*.xref
+dialyzer_manifest_*
