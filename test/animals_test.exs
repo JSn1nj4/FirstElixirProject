@@ -9,6 +9,6 @@ defmodule AnimalsTest do
 
   test "randomize" do
     zoo = Animals.create_zoo()
-    assert zoo != Animals.randomize(zoo)
+    refute zoo == Animals.randomize(zoo)
   end
 end
